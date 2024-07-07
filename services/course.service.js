@@ -12,3 +12,41 @@ exports.getAllCoursesService = async () => {
     }
 
 }
+exports.getFilteredCourseService = async (filter) => {
+    try {
+        const filteredCourse = await Course.find(filter);
+        if (filteredCourse) {
+            return filteredCourse;
+        }
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+
+}
+exports.getFilteredUniversitiesService = async (filter) => {
+    try {
+
+        console.log(filter)
+        const filteredUniversity = await Course.find(filter);
+        if (filteredUniversity) {
+            return filteredUniversity;
+        }
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+
+}
+exports.getAllUniversitiesService = async () => {
+    try {
+        const filteredUniversity = await Course.distinct('university');
+        if (filteredUniversity) {
+            return filteredUniversity;
+        }
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+
+}
